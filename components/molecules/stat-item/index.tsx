@@ -9,7 +9,7 @@ const parseThousands = (value) =>
 const StatItem = ({actionText, value, children }) => {
   return (
     <View>
-        <Label style={{fontWeight:"bold", color: "orange"}}>
+        <Label style={{fontWeight:"bold", color: "orange", textAlign:"center"}}>
           {parseThousands(value)}
         </Label>
         <Label>{children}</Label>
