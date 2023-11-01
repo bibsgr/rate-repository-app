@@ -1,20 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { View, Text, FlatList } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+import repos from "../../../data/repositories";
+import BackButton from "../../molecules/back-button/index";
+import RepositoryItem from "../../organisms/repository-item/index";
 
-export default function App() {
+const Main = () => {
+  const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <Text>Home</Text>
-      <StatusBar style="auto" />
+    <View>
+      <FlatList
+        data={repos}
+        ItemSeparatorComponent={() => <Text></Text>}
+        renderItem={({ item: repo }) => <RepositoryItem repo={repo} />}
+      />
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default Main;
